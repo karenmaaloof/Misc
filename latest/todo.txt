@@ -1,0 +1,24 @@
+1-save Creditor CIF ID, Debtor CIF, Creditor Party ID,Debtor Party ID in financial institution under investigation tab not working
+2-save in decision section not working
+3- if the user choose no for Mandate Related Payment* the save should not ask for the required fields Mandate ID* and Instruction ID* under Mandate Identification
+4-In backend workflow.py I need to send another tag tasktype to this payload
+
+payload = {
+        "event_type":     event_type,
+        "case_id":        case_id,
+        "case_number":    case_number,
+        "from_status":    from_status,
+        "to_status":      to_status,
+        "current_stage":  current_stage,
+        "priority":       priority,
+        "changed_by":     changed_by,
+        "changed_at":     (changed_at or datetime.utcnow()).isoformat(),
+        "action":         action,
+        "changed_fields": changed_fields or {},
+        "metadata":       metadata or {},
+    }
+
+and when the user click pass in decision and submit I need to send 
+"event_type": "CallGCM",
+  "tasktype": "External RFI" and the other fields
+ 
